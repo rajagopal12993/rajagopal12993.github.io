@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajagopal P Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      scroll-behavior: smooth;
+      color: #333;
+      background: url('https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920') center/cover no-repeat fixed;
+      position: relative;
+    }
+    h1,h2,h3,h4,h5 { font-family: 'Exo 2', sans-serif; }
+    .navbar { background: linear-gradient(90deg, #004080, #0073e6); }
+    .navbar a { color: white !important; font-weight: 600; }
+    .navbar .nav-link.active { color: #ffd700 !important; text-decoration: underline; }
+    .btn-resume {
+      background-color: #ffd700; color: #000; font-weight: 600;
+      border-radius: 8px; padding: 6px 12px; margin-left: 15px;
+      transition: all 0.3s ease-in-out;
+    }
+    .btn-resume:hover { background-color: #ffcc00; transform: scale(1.05); }
+
+    /* Hero Section */
+    header {
+      background: url('https://stock.adobe.com/in/search?k=quality+control&asset_id=561536178') center/cover no-repeat;
+      color: white; text-align: center; padding: 140px 20px 100px; position: relative; overflow: hidden;
+    }
+    header::after {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    header .content { position: relative; z-index: 2; }
+    header h1 { font-size: 3rem; font-weight: 700; margin-top: 20px; }
+    header p { font-size: 1.2rem; margin-bottom: 20px; font-weight: 500; }
+    .profile-pic {
+      width: 170px; height: 170px; border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.9); object-fit: cover;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .profile-pic:hover { transform: scale(1.05); }
+
+    /* Sections */
+    section { padding: 80px 0; margin-bottom: 20px; }
+    .section-title {
+      text-align: center; margin-bottom: 50px; font-weight: 700;
+      color: #66d4f3; text-transform: uppercase; letter-spacing: 1px;font-style: italic;
+    }
+
+    /* Glassy / blur effect for sections */
+    .glass-section {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      padding: 40px 20px;
+      margin-bottom: 40px;
+      color: #fff;
+      transition: all 0.8s ease-in-out;
+      text-align: center;
+    }
+    .glass-section:hover {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+    }
+
+    /* Cards */
+    .card { border-radius: 15px; transition: transform 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
+    .card img { border-radius: 15px 15px 0 0; width: 100%; object-fit: cover; }
+    .company-logo { width: 80px; height: auto; display: block; margin: 0 auto 15px; transition: transform 0.3s; }
+    .company-logo:hover { transform: scale(1.1); }
+
+    /* Skills Bubbles */
+    #skills-personal {
+      text-align: center;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+      perspective: 1000px;
+    }
+    #skills-personal .section-title { width: 100%; }
+    .bubble {
+      background: rgba(255,255,255,0.1);
+      color: #fff; font-weight: 600; padding: 20px 30px;
+      border-radius: 50%; width: 150px; height: 150px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      transition: transform 0.5s, box-shadow 0.5s;
+      cursor: default;
+    }
+    .bubble:hover {
+      transform: translateY(-15px) rotateY(360deg) scale(1.1);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Personal Details Card */
+    #resume .card-personal {
+      background: rgba(255,255,255,0.2); border-radius: 15px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      padding: 20px; margin: 20px auto; max-width: 600px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2); color: #fff;
+      text-align: left;
+    }
+    #resume .card-personal h5 { color: #83c8a0; margin-bottom: 15px; }
+
+    /* Certificates clickable */
+    .clickable-cert { cursor: pointer; }
+
+    /* Footer */
+    footer { background: linear-gradient(135deg, #222, #000); color: #aaa; text-align: center; padding: 25px 0; margin-top: 20px; }
+    footer a { color: #fff; text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 768px) { .bubble { width: 120px; height: 120px; padding: 15px; } }
+    @media (max-width: 576px) { .bubble { width: 100px; height: 100px; padding: 10px; font-size: 0.8rem; } }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70" tabindex="0">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg scroll">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#">Rajagopal P</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#objective">Objective</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a href="Rajagopal_P_Resume.pdf" class="btn-resume" target="_blank"><i class="fa fa-download"></i> Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <div class="content">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+      <h1>Rajagopal Pachayapillai</h1>
+      <p>B.E. Mechanical Engineer | Sr. Quality Engineer | NDT Level-II Certified</p>
+      <a href="#contact" class="btn btn-warning btn-lg"><i class="fa fa-envelope"></i> Get in Touch</a>
+    </div>
+  </header>
+
+  <!-- Career Objective -->
+  <section id="objective" class="container glass-section">
+    <h2 class="section-title">Career Objective</h2>
+    <p>Experienced Quality Control Engineer with 11+ years in NDT, inspection, and Six Sigma practices. Dedicated to ensuring compliance, efficiency, and innovation in mechanical and industrial projects. As a Mechanical Engineer specializing in Quality and Inspection, my goal is to leverage my decade-long expertise in Non-Destructive Testing (NDT Level-II), Six Sigma practices, and project supervision to contribute to the success of global engineering enterprises.</p>
+  </section>
+
+  <!-- Professional Experience -->
+  <section id="experience" class="container">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="quality_inspection.jpg" alt="Quality Inspection" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Sr. Quality Engineer</h5>
+            <p><strong>BRIS Engineering Services</strong><br>Coimbatore, Tamil Nadu, India (2021 - Present)</p>
+            <ul>
+              <li>Material &amp; process verification for incoming and in-process manufacturing.</li>
+              <li>Ensure compliance with ASME, ASTM, ISO and API standards in inspection activities.</li>
+              <li>Prepare detailed inspection reports and maintain documentation (MTCs, NCRs).</li>
+              <li>Lead and train junior inspectors on NDT procedures and best practices.</li>
+              <li>Coordinate with production and engineering teams to implement corrective actions.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="quality_control.jpg" alt="Welding Inspection" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">NDT QC Engineer</h5>
+            <p><strong>Blue Ray Inspection Services</strong><br>Coimbatore, Tamil Nadu, India (2017 - 2021)</p>
+            <ul>
+              <li>Conducted welding process verification and pre/post weld inspections.</li>
+              <li>Witnessed PMI, LPT and hardness testing; supervised hydrostatic tests.</li>
+              <li>Reviewed radiographic films (RT) and ensured material traceability (MTC).</li>
+              <li>Implemented inspection checklists and improved defect detection rates.</li>
+              <li>Interacted with clients and vendors for inspection acceptance criteria.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="quality_prod.jpg" alt="CNC Machining" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Quality &amp; Production Engineer</h5>
+            <p><strong>New Tech Industries</strong><br>Thirumudivakkam, Chennai, Tamil Nadu, India (2014 - 2017)</p>
+            <ul>
+              <li>Performed gear shaft material inspections and first-article verifications.</li>
+              <li>Monitored CNC machining processes and implemented SPC where applicable.</li>
+              <li>Provided operator training and created standard operating procedures.</li>
+              <li>Introduced rejection control measures to reduce scrap and rework rates.</li>
+              <li>Collaborated with maintenance to improve machine uptime and part quality.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="container glass-section">
+    <h2 class="section-title">Academic Profile</h2>
+    <ul class="list-group">
+      <li class="list-group-item"><i class="fa fa-graduation-cap"></i> B.E Mechanical (2014) – AKT Memorial College (CGPA: 7.36)</li>
+      <li class="list-group-item"><i class="fa fa-school"></i> Higher Secondary (2010) – Govt. Boys Hr. Sec. School (68%)</li>
+      <li class="list-group-item"><i class="fa fa-book"></i> SSLC (2008) – Govt. Hr. Sec. School Somandargudi (84.2%)</li>
+    </ul>
+  </section>
+
+  <!-- Key Skills -->
+  <section id="skills" class="container glass-section">
+    <h2 class="section-title"><u>Key Skills</u></h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <span class="badge bg-primary p-3 m-2"><i class="fa fa-certificate"></i> NDT Level-II</span>
+      <span class="badge bg-success p-3 m-2"><i class="fa fa-project-diagram"></i> Six Sigma Black Belt</span>
+      <span class="badge bg-info p-3 m-2"><i class="fa fa-clipboard-check"></i> Quality Inspection</span>
+      <span class="badge bg-warning p-3 m-2"><i class="fa fa-tools"></i> Welding &amp; Machining</span>
+    </div>
+  </section>
+
+  <!-- Certificates -->
+  <section id="certificates" class="container glass-section">
+    <h2 class="section-title">Certificates</h2>
+    <div class="row g-4 justify-content-center">
+
+      <!-- Certificate 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/six_sigma_black_belt.jpg" class="card-img-top clickable-cert" alt="Six Sigma Black Belt" data-index="0">
+          <div class="card-body"><h5 class="card-title">Six Sigma Black Belt</h5></div>
+        </div>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/ndt_liquid_penetrant.jpg" class="card-img-top clickable-cert" alt="Liquid Penetrant Testing (LPT)" data-index="1">
+          <div class="card-body"><h5 class="card-title">Liquid Penetrant Testing (LPT)</h5></div>
+        </div>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/ndt_magnetic_particle.jpg" class="card-img-top clickable-cert" alt="Magnetic Particle Testing (MPT)" data-index="2">
+          <div class="card-body"><h5 class="card-title">Magnetic Particle Testing (MPT)</h5></div>
+        </div>
+      </div>
+
+      <!-- Certificate 4 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/ndt_radiography.jpg" class="card-img-top clickable-cert" alt="Radiographic Testing" data-index="3">
+          <div class="card-body"><h5 class="card-title">Radiographic Testing</h5></div>
+        </div>
+      </div>
+
+      <!-- Certificate 5 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/ndt_radiography_film.jpg" class="card-img-top clickable-cert" alt="Radiographic Film Interpretation" data-index="4">
+          <div class="card-body"><h5 class="card-title">Radiographic Film Interpretation</h5></div>
+        </div>
+      </div>
+
+      <!-- Certificate 6 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/ndt_ultrasonic.jpg" class="card-img-top clickable-cert" alt="Ultrasonic Testing (UT)" data-index="5">
+          <div class="card-body"><h5 class="card-title">Ultrasonic Testing (UT)</h5></div>
+        </div>
+      </div>
+
+      <!-- Certificate 7 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="certificates/ndt_visual.jpg" class="card-img-top clickable-cert" alt="Visual Testing (VT)" data-index="6">
+          <div class="card-body"><h5 class="card-title">Visual Testing (VT)</h5></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Certificates Modal with Carousel -->
+  <div class="modal fade" id="certModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-body p-0">
+          <div id="certCarousel" class="carousel slide" data-bs-ride="false">
+
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+              <button type="button" data-bs-target="#certCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="certificates/six_sigma_black_belt.jpg" class="d-block w-100" alt="Six Sigma Black Belt">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Six Sigma Black Belt</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="certificates/ndt_liquid_penetrant.jpg" class="d-block w-100" alt="Liquid Penetrant Testing (PT)">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Liquid Penetrant Testing (PT)</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="certificates/ndt_magnetic_particle.jpg" class="d-block w-100" alt="Magnetic Particle Testing (MT)">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Magnetic Particle Testing (MT)</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="certificates/ndt_radiography.jpg" class="d-block w-100" alt="Radiographic Testing (RT)">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Radiographic Testing (RT)</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="certificates/ndt_radiography_film.jpg" class="d-block w-100" alt="Radiographic Film Interpretation">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Radiographic Film Interpretation</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="certificates/ndt_ultrasonic.jpg" class="d-block w-100" alt="Ultrasonic Testing (UT)">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Ultrasonic Testing (UT)</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="certificates/ndt_visual.jpg" class="d-block w-100" alt="Visual Testing (VT)">
+                <div class="carousel-caption d-none d-md-block text-start">
+                  <h5>Visual Testing (VT)</h5>
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#certCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#certCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Skills Floating Bubbles -->
+  <section id="skills-personal" class="container glass-section">
+    <h2 class="section-title">Personal Skills</h2>
+    <div class="bubble">Customer Handling &amp; Calibration</div>
+    <div class="bubble">Process &amp; Product Validation</div>
+    <div class="bubble">Punctual &amp; Disciplined Work Ethics</div>
+    <div class="bubble">Leadership &amp; Team Motivation</div>
+    <div class="bubble">Flexibility for Shifts &amp; Areas</div>
+    <div class="bubble">5-S &amp; Six Sigma Concepts</div>
+    <div class="bubble">Time Management</div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="container">
+    <h2 class="section-title">Personal Details</h2>
+    <div class="card-personal">
+      <h5>Personal Information</h5>
+      <p><strong>Father Name:</strong> Pachayapillai M</p>
+      <p><strong>Mother Name:</strong> Kolanji P</p>
+      <p><strong>Date of Birth:</strong> 12-02-1993</p>
+      <p><strong>Permanent Address:</strong> 469, North Street, Siruvangur Post, Kallakurichi-606213</p>
+      <p><strong>Marital Status:</strong> Married</p>
+      <p><strong>Languages Known:</strong> Tamil, English, Hindi (Beginner)</p>
+      <div class="text-center mt-3">
+        <a href="Rajagopal_P_Resume.pdf" target="_blank" class="btn btn-primary m-2"><i class="fa fa-eye"></i> View Resume</a>
+        <a href="Rajagopal_P_Resume.pdf" download class="btn btn-success m-2"><i class="fa fa-download"></i> Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container glass-section">
+    <h2 class="section-title">Contact</h2>
+    <p class="text-center">
+      <p><h5>For Inquiries:</h5></p>
+      <i class="fa fa-envelope"></i> <a href="mailto:rajagopalmech1293@gmail.com">rajagopalmech1293@gmail.com</a><br>
+      <i class="fa fa-phone"></i> +91-8526343022<br>
+      <i class="fa fa-map-marker-alt"></i> Kallakurichi, Tamil Nadu, India
+    </p>
+    <div class="text-center">
+      <a href="mailto:rajagopalmech1293@gmail.com" class="btn btn-dark"><i class="fa fa-paper-plane"></i> Send Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Rajagopal P | Built with ❤️ and hosted on GitHub Pages</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const certCarouselEl = document.getElementById('certCarousel');
+      const carousel = new bootstrap.Carousel(certCarouselEl, { interval: false, ride: false });
+      const certModalEl = document.getElementById('certModal');
+      const certModal = new bootstrap.Modal(certModalEl);
+      const certImages = document.querySelectorAll('#certificates img.clickable-cert');
+      const downloadLink = document.getElementById('certDownload');
+
+      // Map clicks on certificate cards to open modal at the right slide
+      certImages.forEach((img, idx) => {
+        img.addEventListener('click', () => {
+          carousel.to(idx);
+          certModal.show();
+        });
+      });
+
+      // Update download link to current slide image when slide changes
+      certCarouselEl.addEventListener('slid.bs.carousel', function (e) {
+        const activeIdx = Array.from(document.querySelectorAll('#certCarousel .carousel-item')).findIndex(item => item.classList.contains('active'));
+        const activeImg = document.querySelectorAll('#certCarousel .carousel-item img')[activeIdx];
+        if (activeImg) {
+          downloadLink.href = activeImg.src;
+        }
+      });
+
+      // Set initial download link when modal opened
+      certModalEl.addEventListener('shown.bs.modal', function() {
+        const activeImg = document.querySelector('#certCarousel .carousel-item.active img');
+        if (activeImg) downloadLink.href = activeImg.src;
+      });
+    });
+  </script>
+</body>
+</html>
